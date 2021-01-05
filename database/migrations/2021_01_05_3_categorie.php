@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Paiement extends Migration
+class Categorie extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class Paiement extends Migration
      */
     public function up()
     {
-        Schema::create('Paiement', function (Blueprint $table) {
-            $table->String('type');
+        Schema::create('categorie', function (Blueprint $table) {
+            $table->id();
+            $table->String('nom');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Article extends Migration
+class Localisation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class Article extends Migration
      */
     public function up()
     {
-        
-        Schema::create('Article', function (Blueprint $table) {
+        Schema::create('localisation', function (Blueprint $table) {
             $table->id();
-            $table->String('nom');
-            $table->String('descriptif');
-            $table->float('Prix');
-            $table->integer('stock');
-            $table->date('conservation');
+            $table->String('ville');
+            $table->integer('cp');
+            $table->String('pays');
+            $table->String('region');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Localisation extends Migration
+class Paiement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Localisation extends Migration
      */
     public function up()
     {
-        Schema::create('Localisation', function (Blueprint $table) {
-            $table->String('ville');
-            $table->integer('CP');
-            $table->String('pays');
-            $table->String('region');
+        Schema::create('paiement', function (Blueprint $table) {
+            $table->id();
+            $table->String('type');
+
         });
     }
 

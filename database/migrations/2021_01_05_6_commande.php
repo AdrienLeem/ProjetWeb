@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Utilisateur extends Migration
+class Commande extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Utilisateur extends Migration
      */
     public function up()
     {
-        Schema::create('Utilisateur', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->boolean('fournisseur');
-            $table->string('email')->unique();
-            $table->string('password');
+        
+        Schema::create('commande', function (Blueprint $table) {
+            $table->integer('num');
+            $table->timestamps();
+            //$table->foreign('article_id')->reference('id')->on('article');
+            //$table->foreign('utilisateur_id')->reference('id')->on('utilisateur');
         });
     }
 
