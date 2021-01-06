@@ -1,5 +1,4 @@
 <?php
-// Controller pour la partie d'authentification - DD
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
