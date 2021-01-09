@@ -23,8 +23,8 @@ class Controller extends BaseController
         ]);
     }
 
-    public function edit() {
-        return view('edit');
+    public function editProfil() {
+        return view('editProfile');
     }
 
     public function fournisseur() {
@@ -33,5 +33,29 @@ class Controller extends BaseController
         }
 
         return view('fournisseur');
+    }
+
+    public function produit() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/home');
+        }
+
+        return view('produit');
+    }
+
+    public function addProduit() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/home');
+        }
+
+        return view('addProduit');
+    }
+
+    public function editProduit() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/home');
+        }
+
+        return view('editProduit');
     }
 }

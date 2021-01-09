@@ -19,9 +19,15 @@ Route::get('/', function () {
 
 Route::get('/profil', 'Controller@profil')->name('profil');
 
-Route::get('/profil/edit', 'Controller@edit')->name('edit');
+Route::get('/profil/edit', 'Controller@editProfil')->name('editProfil');
 
 Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
+
+Route::get('/fournisseur/produit', 'Controller@produit')->name('produit');
+
+Route::get('/fournisseur/produit/add', 'Controller@addProduit')->name('addProduit');
+
+Route::get('/fournisseur/produit/edit', 'Controller@editProduit')->name('editProduit');
 
 Auth::routes();
 
