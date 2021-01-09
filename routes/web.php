@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profil', function () {
+    return view('profil');
+});
+
+Route::get('/fournisseur', function () {
+    return view('fournisseur');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
