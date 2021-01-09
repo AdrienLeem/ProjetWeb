@@ -29,7 +29,7 @@ class Controller extends BaseController
 
     public function fournisseur() {
         if (Auth::user()->fournisseur == 0) {
-            return redirect('/home');
+            return redirect('/');
         }
 
         return view('fournisseur');
@@ -37,7 +37,7 @@ class Controller extends BaseController
 
     public function produit() {
         if (Auth::user()->fournisseur == 0) {
-            return redirect('/home');
+            return redirect('/');
         }
 
         return view('produit');
@@ -45,7 +45,7 @@ class Controller extends BaseController
 
     public function addProduit() {
         if (Auth::user()->fournisseur == 0) {
-            return redirect('/home');
+            return redirect('/');
         }
 
         return view('addProduit');
@@ -53,7 +53,7 @@ class Controller extends BaseController
 
     public function editProduit() {
         if (Auth::user()->fournisseur == 0) {
-            return redirect('/home');
+            return redirect('/');
         }
 
         return view('editProduit');
