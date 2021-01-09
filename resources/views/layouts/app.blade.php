@@ -56,9 +56,19 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profil') }}">
+                                        {{ __('Profil') }}
+                                    </a>
+
+                                    @if (Auth::user()->fournisseur == 1)
+                                        <a classs="dropdown-item" href="{{ route('fournisseur') }}">
+                                            {{ __('Acces vendeur') }}
+                                        </a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

@@ -17,13 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profil', function () {
-    return view('profil');
-});
+Route::get('/profil', 'Controller@profil')->name('profil');
 
-Route::get('/fournisseur', function () {
-    return view('fournisseur');
-});
+Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
 
 Auth::routes();
 
