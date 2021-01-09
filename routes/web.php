@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/profil', 'Controller@profil')->name('profil');
 
+Route::get('/profil/edit', 'Controller@edit')->name('edit');
+
 Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
 
 Auth::routes();

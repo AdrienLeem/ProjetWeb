@@ -19,4 +19,5 @@
         @endforeach
     </table>
 </div>
+<a class="btn btn-primary" href="/profil/edit" role="button">Editer le profil</a>
 @endsection

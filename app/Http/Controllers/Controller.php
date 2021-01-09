@@ -23,7 +23,15 @@ class Controller extends BaseController
         ]);
     }
 
+    public function edit() {
+        return view('edit');
+    }
+
     public function fournisseur() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/home');
+        }
+
         return view('fournisseur');
     }
 }
