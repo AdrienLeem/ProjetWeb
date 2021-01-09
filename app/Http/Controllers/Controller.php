@@ -24,8 +24,24 @@ class Controller extends BaseController
         ]);
     }
 
+    public function showProfilForm() {
+        $id = Auth::id();
+        $user = User::where('id', $id)
+                    ->get();
+        
+        return view('editProfile', [
+            'user' => $user
+        ]);
+    }
+
     public function editProfil() {
-        return view('editProfile');
+        $id = Auth::id();
+        $user = User::find($id);
+        $user->username = $_POST['username'];
+        $user->email = $_POST['email'];
+        $user->save();
+
+        return redirect('profil');
     }
 
     public function fournisseur() {
@@ -41,7 +57,13 @@ class Controller extends BaseController
             return redirect('/');
         }
 
-        return view('produit');
+        $id = Auth::id();
+        $produit = Produit::where('id', $id)
+                    ->get();
+
+        return view('produit', [
+            'produit' => $produit
+        ]);
     }
 
     public function showProduitForm() {
@@ -57,11 +79,14 @@ class Controller extends BaseController
             return redirect('/');
         }
 
+        $id = Auth::id();
+
         Produit::create([
             'nom' => $_POST['nom'],
             'descriptif' => $_POST['descriptif'],
             'prix' => $_POST['prix'],
-            'stock' => $_POST['stock']
+            'stock' => $_POST['stock'],
+            'id_user' => $id
             ]);
 
         return redirect('/fournisseur/produit');

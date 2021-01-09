@@ -21,7 +21,8 @@ class Produit extends Migration
             $table->float('prix');
             $table->integer('stock');
             $table->timestamps();
-            //$table->foreign('categorie_id')->reference('id')->on('categorie');
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

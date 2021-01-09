@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Route::get('/profil', 'Controller@profil')->name('profil');
 
-Route::get('/profil/edit', 'Controller@editProfil')->name('editProfil');
+Route::get('/profil/edit', 'Controller@showProfilForm')->name('/profil/edit');
+
+Route::post('/profil/edit', 'Controller@editProfil');
 
 Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
 
