@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Produit;
 
 class Controller extends BaseController
 {
@@ -43,12 +44,27 @@ class Controller extends BaseController
         return view('produit');
     }
 
-    public function addProduit() {
+    public function showProduitForm() {
         if (Auth::user()->fournisseur == 0) {
             return redirect('/');
         }
 
         return view('addProduit');
+    }
+
+    public function addProduit() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/');
+        }
+
+        Produit::create([
+            'nom' => $_POST['nom'],
+            'descriptif' => $_POST['descriptif'],
+            'prix' => $_POST['prix'],
+            'stock' => $_POST['stock']
+            ]);
+
+        return redirect('/fournisseur/produit');
     }
 
     public function editProduit() {

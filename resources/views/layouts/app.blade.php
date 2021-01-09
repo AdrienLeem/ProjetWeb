@@ -64,9 +64,9 @@
                                     </a>
 
                                     @if (Auth::user()->fournisseur == 1)
-                                        <a classs="dropdown-item" href="{{ route('fournisseur') }}">
-                                            {{ __('Acces vendeur') }}
-                                        </a>
+                                    <a classs="dropdown-item" href="{{ route('fournisseur') }}">
+                                        {{ __('Acces vendeur') }}
+                                    </a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

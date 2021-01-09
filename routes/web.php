@@ -25,7 +25,9 @@ Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
 
 Route::get('/fournisseur/produit', 'Controller@produit')->name('produit');
 
-Route::get('/fournisseur/produit/add', 'Controller@addProduit')->name('addProduit');
+Route::get('/fournisseur/produit/add', 'Controller@showProduitForm')->name('/fournisseur/produit/add');
+
+Route::post('/fournisseur/produit/add', 'Controller@addProduit');
 
 Route::get('/fournisseur/produit/edit', 'Controller@editProduit')->name('editProduit');
 

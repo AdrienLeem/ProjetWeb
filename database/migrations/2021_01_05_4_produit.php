@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Article extends Migration
+class Produit extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class Article extends Migration
     public function up()
     {
         
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('produits', function (Blueprint $table) {
             $table->id();
             $table->String('nom');
             $table->String('descriptif');
-            $table->float('Prix');
+            $table->float('prix');
             $table->integer('stock');
-            $table->date('conservation');
+            $table->timestamps();
             //$table->foreign('categorie_id')->reference('id')->on('categorie');
 
         });
