@@ -7,6 +7,9 @@
             <tr>
                 <th>ID</th>
                 <th>Produit</th>
+                <th>Descriptif</th>
+                <th>Prix</th>
+                <th>Stock</th>
             </tr>
         </thead>
         @foreach ($produit as $p)
@@ -17,6 +20,8 @@
                 <td>{{ $p->descriptif }}</td>
                 <td>{{ $p->prix }}</td>
                 <td>{{ $p->stock }}</td>
+                <td><a class="btn" href="/fournisseur/produit/edit?id={{ $p->id }}" role="button">Editer</a></td>
+                <td><a class="btn" href="/fournisseur/produit/delete?id={{ $p->id }}" role="button">Supprimer</a></td>
             </tr>
         </tbody>
         @endforeach

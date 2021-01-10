@@ -31,7 +31,11 @@ Route::get('/fournisseur/produit/add', 'Controller@showProduitForm')->name('/fou
 
 Route::post('/fournisseur/produit/add', 'Controller@addProduit');
 
-Route::get('/fournisseur/produit/edit', 'Controller@editProduit')->name('editProduit');
+Route::get('/fournisseur/produit/edit', 'Controller@showEditProduitForm')->name('/fournisseur/produit/edit');
+
+Route::post('/fournisseur/produit/edit', 'Controller@editProduit');
+
+Route::get('/fournisseur/produit/delete', 'Controller@deleteProduit')->name('deleteProduit');
 
 Auth::routes();
 

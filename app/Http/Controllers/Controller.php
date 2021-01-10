@@ -58,7 +58,7 @@ class Controller extends BaseController
         }
 
         $id = Auth::id();
-        $produit = Produit::where('id', $id)
+        $produit = Produit::where('id_user', $id)
                     ->get();
 
         return view('produit', [
@@ -92,11 +92,37 @@ class Controller extends BaseController
         return redirect('/fournisseur/produit');
     }
 
-    public function editProduit() {
+    public function showEditProduitForm() {
         if (Auth::user()->fournisseur == 0) {
             return redirect('/');
         }
 
-        return view('editProduit');
+        $produit = Produit::where('id', $_GET['id'])
+                    ->get();
+
+        return view('editProduit', [
+            'produit' => $produit
+        ]);
+    }
+
+    public function editProduit() {
+        $produit = Produit::find($_GET['id']);
+        $produit->nom = $_POST['nom'];
+        $produit->descriptif = $_POST['descriptif'];
+        $produit->prix = $_POST['prix'];
+        $produit->stock = $_POST['stock'];
+        $produit->save();
+
+        return redirect('/fournisseur/produit');
+    }
+
+    public function deleteProduit() {
+        if (Auth::user()->fournisseur == 0) {
+            return redirect('/');
+        }
+
+        Produit::findOrFail($_GET['id'])->delete();
+
+        return redirect('/fournisseur/produit');
     }
 }
