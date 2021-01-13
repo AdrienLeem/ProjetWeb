@@ -72,9 +72,12 @@ class Controller extends BaseController
             ]);
 
         $vendeur = User::find($id_user);
-        echo $vendeur;
         $vendeur->solde = $vendeur->solde + $montant[0]['prix'];
         $vendeur->save();
+
+        $produit = Produit::find($id_prod);
+        $produit->stock = $produit->stock - 1;
+        $produit->save();
 
         return redirect('/paiement');
     }
