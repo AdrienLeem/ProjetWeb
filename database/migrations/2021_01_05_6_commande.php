@@ -14,11 +14,14 @@ class Commande extends Migration
     public function up()
     {
         
-        Schema::create('commande', function (Blueprint $table) {
-            $table->integer('num');
+        Schema::create('commandes', function (Blueprint $table) {
+            $table->id();
+            $table->integer('montant');
             $table->timestamps();
-            //$table->foreign('article_id')->reference('id')->on('article');
-            //$table->foreign('utilisateur_id')->reference('id')->on('utilisateur');
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('id_prod')->index();
+            $table->foreign('id_prod')->references('id')->on('produits')->onDelete('cascade');
         });
     }
 

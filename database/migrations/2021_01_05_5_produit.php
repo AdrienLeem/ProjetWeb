@@ -17,7 +17,7 @@ class Produit extends Migration
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
             $table->String('nom');
-            $table->String('descriptif');
+            $table->text('descriptif');
             $table->float('prix');
             $table->integer('stock');
             $table->String('ville');

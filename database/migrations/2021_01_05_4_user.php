@@ -22,8 +22,6 @@ class User extends Migration
             $table->integer('solde');
             $table->timestamps();
             $table->rememberToken();
-            //$table->foreign('paiement_id')->reference('id')->on('paiement');
-            //$table-> foreign('localisation_id')->reference('id')->on('localisation');
 
         });
     }

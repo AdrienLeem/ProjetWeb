@@ -17,7 +17,9 @@ Route::get('/', 'Controller@accueil')->name('accueil');
 
 Route::post('/recherche', 'Controller@recherche')->name('recherche');
 
-Route::get('/recherche/produit', 'Controller@ficheProduit')->name('ficheProduit');
+Route::get('/recherche/produit', 'Controller@ficheProduit')->name('/recherche/produit');
+
+Route::post('/recherche/produit', 'Controller@paiement');
 
 Route::get('/profil', 'Controller@profil')->name('profil');
 

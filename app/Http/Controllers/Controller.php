@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Produit;
 use App\Localisation;
+use App\Commande;
 
 class Controller extends BaseController
 {
@@ -36,11 +37,43 @@ class Controller extends BaseController
     }
 
     public function ficheProduit() {
-        
+        $produit = Produit::where('id', $_GET['id'])
+            ->get();
+
+        $id_user = Produit::select('id_user')
+                ->where('id', $_GET['id'])
+            ->get();
+
+        $fournisseur = User::where('id', $id_user[0]['id_user'])
+            ->get();
+
+        return view('ficheProduit', [
+            'produit' => $produit,
+            'fournisseur' => $fournisseur
+        ]);
         
         return view('ficheProduit');
     }
 
+    public function paiement() {
+        $id_user = Auth::id();
+        $id_prod = Produit::select('id')
+                    ->where('id', $_GET['id'])
+                    ->get();
+        
+        $montant = Produit::select('prix')
+                    ->where('id', $_GET['id'])
+                    ->get();
+
+        Commande::create([
+            'montant' => $montant[0]['prix'],
+            'id_user' => $id_user,
+            'id_prod' => $id_prod[0]['id']
+            ]);
+
+        return redirect('/');
+    }
+    
     public function profil() {
         $id = Auth::id();
         $user = User::where('id', $id)
@@ -95,7 +128,13 @@ class Controller extends BaseController
             return redirect('/');
         }
 
-        return view('fournisseur');
+        $id = Auth::id();
+        $user = User::where('id', $id)
+                    ->get();
+
+        return view('fournisseur', [
+            'user' => $user
+        ]);
     }
 
     public function produit() {
