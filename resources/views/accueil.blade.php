@@ -29,6 +29,6 @@
 	<br>
     <div class="d-flex justify-content-center"><h3>Bienvenue sur le site de LocaShop !</h3></div>
     <br>
-    <div class="d-flex justify-content-center"><h5 class="card-title">Le site ou vous comblerez toutes vos envies</h5></div>
+    <div class="d-flex justify-content-center"><h5 class="card-title">Le site où vous comblerez toutes vos envies !</h5></div>
 @endguest
 @endsection

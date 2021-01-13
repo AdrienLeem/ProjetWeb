@@ -60,7 +60,12 @@ class Controller extends BaseController
     }
 
     public function paiement() {
-        $id_user = Auth::id();
+        $id = Auth::id();
+
+        $id_user = Produit::select('id_user')
+                    ->where('id', $_GET['id'])
+                    ->get();
+
         $id_prod = Produit::select('id')
                     ->where('id', $_GET['id'])
                     ->get();
@@ -71,11 +76,11 @@ class Controller extends BaseController
 
         Commande::create([
             'montant' => $montant[0]['prix'],
-            'id_user' => $id_user,
+            'id_user' => $id,
             'id_prod' => $id_prod[0]['id']
             ]);
 
-        $vendeur = User::find($id_user);
+        $vendeur = User::find($id_user[0]['id_user']);
         $vendeur->solde = $vendeur->solde + $montant[0]['prix'];
         $vendeur->save();
 
