@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +48,7 @@ Route::get('/fournisseur/produit/delete', 'Controller@deleteProduit')->name('del
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/paiement', [StripeController::class, 'handleGet']);
+
+Route::post('/paiement', [StripeController::class, 'handlePost'])->name('paiement');
