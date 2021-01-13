@@ -53,4 +53,4 @@ Route::get('/paiement', [StripeController::class, 'handleGet']);
 
 Route::post('/paiement', [StripeController::class, 'handlePost'])->name('paiement');
 
-Route::get('/paiementOK', 'HomeController@paiementOK')->name('paiementOK');
+Route::get('/paiementOK', 'Controller@paiementOK')->name('paiementOK');
