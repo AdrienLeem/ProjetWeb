@@ -19,11 +19,15 @@ class Controller extends BaseController
     public function accueil() {
         $id = Auth::id();
 
+        $user = User::where('id', $id)
+            ->get();
+
         $localisation = Localisation::where('id_user', $id)
                     ->get();
 
         return view('accueil', [
-            'localisation' => $localisation
+            'localisation' => $localisation,
+            'user' => $user
         ]);
     }
 
