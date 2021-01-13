@@ -18,6 +18,10 @@
         </tbody>
         @endforeach
     </table>
+    @foreach ($localisation as $l)
+        <p>{{ $l->ville }}<p>
+    @endforeach
 </div>
+<a class="btn btn-primary" href="/profil/addLoca" role="button">Ajouter une localisation</a>
 <a class="btn btn-primary" href="/profil/edit" role="button">Editer le profil</a>
 @endsection

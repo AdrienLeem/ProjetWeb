@@ -13,12 +13,12 @@ class Localisation extends Migration
      */
     public function up()
     {
-        Schema::create('localisation', function (Blueprint $table) {
+        Schema::create('localisations', function (Blueprint $table) {
             $table->id();
             $table->String('ville');
-            $table->integer('cp');
-            $table->String('pays');
-            $table->String('region');
+            $table->timestamps();
+            $table->unsignedBigInteger('id_user')->index();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

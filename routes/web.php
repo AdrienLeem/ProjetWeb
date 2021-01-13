@@ -13,15 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::get('/', 'Controller@accueil')->name('accueil');
+
+Route::post('/recherche', 'Controller@recherche')->name('recherche');
+
+Route::get('/recherche/produit', 'Controller@ficheProduit')->name('ficheProduit');
 
 Route::get('/profil', 'Controller@profil')->name('profil');
 
 Route::get('/profil/edit', 'Controller@showProfilForm')->name('/profil/edit');
 
 Route::post('/profil/edit', 'Controller@editProfil');
+
+Route::get('/profil/addLoca', 'Controller@showLocaForm')->name('/profil/addLoca');
+
+Route::post('/profil/addLoca', 'Controller@addLoca');
 
 Route::get('/fournisseur', 'Controller@fournisseur')->name('fournisseur');
 
