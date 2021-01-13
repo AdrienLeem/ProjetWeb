@@ -71,6 +71,11 @@ class Controller extends BaseController
             'id_prod' => $id_prod[0]['id']
             ]);
 
+        $vendeur = User::find($id_user);
+        echo $vendeur;
+        $vendeur->solde = $vendeur->solde + $montant[0]['prix'];
+        $vendeur->save();
+
         return redirect('/');
     }
     
