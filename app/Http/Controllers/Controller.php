@@ -75,7 +75,8 @@ class Controller extends BaseController
         $vendeur->solde = $vendeur->solde + $montant[0]['prix'];
         $vendeur->save();
 
-        $produit = Produit::find($id_prod);
+        $produit = Produit::find($id_prod[0]['id']);
+        echo $produit;
         $produit->stock = $produit->stock - 1;
         $produit->save();
 

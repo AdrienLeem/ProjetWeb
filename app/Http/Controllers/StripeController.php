@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Commande;
 use Stripe;
 use Session;
 
@@ -14,7 +16,7 @@ class StripeController extends Controller
     }
 
     function handlePost(Request $request){
-        $id_user=Auth::id;
+        $id_user=Auth::id();
         $montant = Commande::where('id_user', $id_user)->orderBy('id', 'DESC')->take(1)->get();
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
