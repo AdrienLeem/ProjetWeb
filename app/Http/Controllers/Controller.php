@@ -76,9 +76,13 @@ class Controller extends BaseController
         $vendeur->solde = $vendeur->solde + $montant[0]['prix'];
         $vendeur->save();
 
-        return redirect('/');
+        return redirect('/paiement');
     }
     
+    public function paiementOK() {
+       return view('paiementOK');
+    }
+
     public function profil() {
         $id = Auth::id();
         $user = User::where('id', $id)
